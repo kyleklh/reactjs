@@ -16,6 +16,9 @@ export default function ControlButtons(props) {
 			<div className="btn btn-one" onMouseDown={e => e.preventDefault()} onClick={props.handlePauseResume}>
 				{props.isPaused ? "Resume" : "Pause"}
 			</div>
+			<div className="btn btn-three" onMouseDown={e => e.preventDefault()} onClick={props.handleLap}>
+				Lap
+			</div>
 		</div>
 	);
 

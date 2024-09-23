@@ -7,12 +7,14 @@ function StopWatch() {
     const [isActive, setIsActive] = useState(false);
     const [isPaused, setIsPaused] = useState(false);
     const [time, setTime] = useState(0);
+    const [laps, setLaps] = useState([]);
 
     useEffect(() => {
         let interval = null;
+
         if (isActive && !isPaused) {
             interval = setInterval(() => {
-                setTime((time) => time + 10);
+                setTime((prevTime) => prevTime + 10);
             }, 10);
         } else {
             clearInterval(interval);
@@ -34,6 +36,11 @@ function StopWatch() {
         setIsActive(false);
         setIsPaused(false);
         setTime(0);
+        setLaps([]); 
+    };
+
+    const handleLap = () => {
+        setLaps([...laps, time]); 
     };
 
     return (
@@ -45,7 +52,17 @@ function StopWatch() {
                 handleStart={handleStart}
                 handlePauseResume={handlePauseResume}
                 handleReset={handleReset}
+                handleLap={handleLap} 
             />
+            <div className="laps">
+                {laps.map((lapTime, index) => (
+                    <div key={index} className="lap">
+                        Lap {index + 1}: {("0" + Math.floor((lapTime / 60000) % 60)).slice(-2)}:
+                        {("0" + Math.floor((lapTime / 1000) % 60)).slice(-2)}.
+                        {("0" + ((lapTime / 10) % 100)).slice(-2)}
+                    </div>
+                ))}
+            </div>
         </div>
     );
 }

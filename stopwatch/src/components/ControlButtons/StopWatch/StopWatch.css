@@ -18,7 +18,18 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    padding-top: 10px;
 }
+
+
+.laps {
+    max-height: 400px; 
+    overflow-y: auto; 
+    width: 100%; 
+    margin-top: 80px; 
+}
+
 
 
 .digits {
@@ -73,4 +84,28 @@ button:hover {
         padding: 8px 16px;
         font-size: 1.2rem;
     }
+}
+
+.laps {
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.lap {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.2rem;
+    color: #f5f5f5;
+    margin: 5px 0;
+    background-color: rgba(228, 42, 42, 0.8); 
+    padding: 10px;
+    border-radius: 10px;
+    width: 80%; 
+    text-align: center;
+}
+
+.lap:nth-child(even) {
+    background-color: rgba(100, 100, 100, 0.6); 
 }
