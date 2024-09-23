@@ -35,7 +35,7 @@ function StopWatch() {
     const handleReset = () => {
         setIsActive(false);
         setIsPaused(false);
-        setTime(0);
+        setTime();
         setLaps([]); 
     };
 
